@@ -15,7 +15,7 @@ namespace BusBoard
         public void PrintBus()
         {
             int timeToStationInMin = timeToStation / 60;
-            Console.Out.WriteLine($"Bus number {lineName} heading to {destinationName} will arrive at stop {platformName} {stationName} in {timeToStationInMin} minutes");
+            Console.Out.WriteLine($"Bus number {lineName} heading to {destinationName} will arrive at stop {(platformName != "null"? $"{platformName} " :"")}{stationName} in {timeToStationInMin} minutes");
         }
     }
     

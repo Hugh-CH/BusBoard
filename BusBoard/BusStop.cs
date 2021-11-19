@@ -2,6 +2,7 @@
 {
     public class BusStop
     {
-        public string stationNaptan { get; set; }
+        public string id { get; set; }
+        public double distance { get; set; }
     }
 }

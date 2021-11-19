@@ -11,8 +11,8 @@ namespace BusBoard
             
 
             var busTime = new BusTimeCalc();
-            busTime.NextBuses(5);
-
+            //busTime.NextBuses(5,"490G00008660");
+            busTime.BusFromPostcode(5);
 
         }
     }
