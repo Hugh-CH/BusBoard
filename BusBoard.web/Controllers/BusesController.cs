@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using BusBoard.web.Models;
+using BusBoard.web.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
@@ -9,34 +10,45 @@ namespace BusBoard.web.Controllers
     public class BusesController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private readonly BusTimeCalc busCalculator;
+        private readonly BusesService service;
         
         public BusesController(ILogger<HomeController> logger)
-        {
+        { 
             _logger = logger;
-            busCalculator = new BusTimeCalc();
+            service = new BusesService();
         }
 
         
         
-        // GET
-        public IActionResult Arrivals()
+        [HttpGet("/Buses/StopcodeArrivals")]
+        public IActionResult StopcodeArrivals([FromQuery(Name = "stopcode")] string stopcode)
         {
-            var predictions = busCalculator.NextBuses(5,"490008660N");
-            var predictionViewModels = predictions.Select(a => new PredictionViewModel(a)).ToList();
+            
+            var predictionViewModels = service.PredictionsFromStopcode(5,stopcode).Select(a => new PredictionViewModel(a)).ToList();
             return View(predictionViewModels);
         }
         
-        [HttpGet("/Buses/PostcodeArrivals/{postcode}")]
-        public IActionResult PostcodeArrivals([FromRoute] string postcode)
+        [HttpGet("/Buses/PostcodeArrivals")]
+        public IActionResult PostcodeArrivals([FromQuery(Name = "postcode")] string postcode)
         {
-            var predictions = busCalculator.BusFromPostcode(5,postcode);
+            
             var predictionViewModels = new List<List<PredictionViewModel>>();
-            foreach (var list in predictions)
+            
+            foreach (var list in service.PredictionsFromPostcode(5,postcode))
             {
                 predictionViewModels.Add( list.Select(a => new PredictionViewModel(a)).ToList());
             }
             return View(predictionViewModels);
+        }
+
+        public IActionResult PostcodeForm()
+        {
+            return View();
+        }
+        
+        public IActionResult StopcodeForm()
+        {
+            return View();
         }
     }
 }
