@@ -13,25 +13,25 @@ namespace BusBoard
             
             List<Prediction> SortedList = ListOfBusTimes.OrderBy(o=>o.timeToStation).ToList();
 
-            return SortedList;
-            // for (int i = 0; i < n && i< SortedList.Count; i++)
-            // {
-            //     Console.WriteLine(SortedList[i].GetString());
-            // }
+            return SortedList.Take(n).ToList();
+
         }
 
-        public void BusFromPostcode(int n)
+        public List<List<Prediction>> BusFromPostcode(int n, string postcode)
         {
-            string postcode = Console.In.ReadLine();
+          //  string postcode = Console.In.ReadLine();
             var BusTimeReader = new APIReader();
             Location queryLocation = BusTimeReader.GetLocations(postcode);
             var stopcodes =  BusTimeReader.GetStopCodes(queryLocation);
+            
+            List<List<Prediction>> predictions = new List<List<Prediction>>();
             foreach (var stopcode in stopcodes)
             {
-                NextBuses(n,stopcode);
+                predictions.Add(NextBuses(n,stopcode));
             }
-            
-            
+
+            return predictions;
+
 
         }
     }
