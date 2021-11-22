@@ -6,17 +6,18 @@ namespace BusBoard
 {
     public class BusTimeCalc
     {
-        public void NextBuses(int n,string stopcode)
+        public List<Prediction> NextBuses(int n,string stopcode)
         {
             var BusTimeReader = new APIReader();
             List<Prediction> ListOfBusTimes =  BusTimeReader.GetPrediction(stopcode);
             
             List<Prediction> SortedList = ListOfBusTimes.OrderBy(o=>o.timeToStation).ToList();
 
-            for (int i = 0; i < n && i< SortedList.Count; i++)
-            {
-                SortedList[i].PrintBus();
-            }
+            return SortedList;
+            // for (int i = 0; i < n && i< SortedList.Count; i++)
+            // {
+            //     Console.WriteLine(SortedList[i].GetString());
+            // }
         }
 
         public void BusFromPostcode(int n)

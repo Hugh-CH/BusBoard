@@ -2,6 +2,10 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusBoard", "BusBoard\BusBoard.csproj", "{C90CFED2-1FDF-4645-9D72-879CC81F69F6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusBoard.api", "BusBoard.api\BusBoard.api.csproj", "{E042CBE6-9BCB-44DC-8D3D-691A12C291A3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusBoard.web", "BusBoard.web\BusBoard.web.csproj", "{2CD6C281-8BE3-4B37-A075-C687F87C226F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +16,13 @@ Global
 		{C90CFED2-1FDF-4645-9D72-879CC81F69F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C90CFED2-1FDF-4645-9D72-879CC81F69F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C90CFED2-1FDF-4645-9D72-879CC81F69F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E042CBE6-9BCB-44DC-8D3D-691A12C291A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E042CBE6-9BCB-44DC-8D3D-691A12C291A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E042CBE6-9BCB-44DC-8D3D-691A12C291A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E042CBE6-9BCB-44DC-8D3D-691A12C291A3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2CD6C281-8BE3-4B37-A075-C687F87C226F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2CD6C281-8BE3-4B37-A075-C687F87C226F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2CD6C281-8BE3-4B37-A075-C687F87C226F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2CD6C281-8BE3-4B37-A075-C687F87C226F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
